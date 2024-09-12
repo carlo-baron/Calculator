@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 62.5%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#calculator-bg{
+    background-color: #313131;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50vh;
+    height: 70vh;
+}
+
+#calculator-body{
+    border-radius: 1rem;
+    width: 90%;
+    height: 90%;
+    background-color: #171717;
+}
