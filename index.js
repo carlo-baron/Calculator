@@ -14,6 +14,7 @@ function clickEvent(event){
         inputField.value = "";
     }else{
         inputField.value += value;
+        inputField.scrollLeft = inputField.scrollWidth;
     }
 
 }
