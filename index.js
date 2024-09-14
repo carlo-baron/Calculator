@@ -2,6 +2,7 @@ const inputField = document.getElementById("input-field");
 const buttons = document.getElementsByClassName("buttons");
 const buttonsArray = Array.from(buttons);
 
+let isToClearInput = false;
 
 buttonsArray.forEach(element => {
     element.addEventListener("click", clickEvent)
@@ -10,20 +11,24 @@ buttonsArray.forEach(element => {
 function clickEvent(event){
     const value = event.target.value;
     if(value == "="){
-        console.log("Equal");
-        console.log(inputField.value);
         equalFunction();
     }else if(value == "C"){
-        // inputField.value = inputField.value.slice(0, -1);
         inputField.value = "";
     }else{
+        if(isToClearInput){
+            inputField.value = "";
+            isToClearInput = false;
+        }
         inputField.value += value;
         inputField.scrollLeft = inputField.scrollWidth;
     }
 }
 
 function equalFunction(){
-    const pattern = /[+\-*\/]/g
-    console.log(pattern.test(inputField.value));
-    console.log(eval(inputField.value)); // evalue is cheating what the heal
+    try{
+        inputField.value = eval(inputField.value);
+    }catch(error){
+        inputField.value = error;
+        isToClearInput = true;
+    }
 }
